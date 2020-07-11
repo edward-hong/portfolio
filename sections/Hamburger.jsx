@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 
 import Hex from '../components/Hex'
+import { PRIMARY_COLOR } from '../constants'
 
 const HamburgerHex = styled(Hex)`
   position: fixed;
@@ -22,9 +22,7 @@ const HamburgerIcon = styled.span`
   opacity: ${({ opacity }) => opacity};
 `
 
-const Hamburger = () => {
-  const [isOpen, setIsOpen] = useState(false)
-
+const Hamburger = ({ isOpen, setIsOpen }) => {
   const toggleHamburger = (e) => {
     e.preventDefault()
     setIsOpen(!isOpen)
@@ -34,7 +32,7 @@ const Hamburger = () => {
     <HamburgerHex
       href="#"
       size={11}
-      bgColor="#fe7f2d"
+      bgColor={PRIMARY_COLOR}
       onClick={toggleHamburger}
     >
       <HamburgerIcon
