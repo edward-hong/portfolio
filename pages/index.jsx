@@ -19,6 +19,17 @@ const Index = () => {
           margin: 0;
           font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
         }
+
+        h3 {
+          margin-bottom: 20px;
+          font-size: 1.4rem;
+          font-weight: 700;
+        }
+
+        p {
+          margin-bottom: 30px;
+          font-size: 1.2rem;
+        }
       `}</style>
     </>
   )
