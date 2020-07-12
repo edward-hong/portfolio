@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Hamburger from '../sections/Hamburger'
 import OverlayNav from '../sections/OverlayNav'
 import Landing from '../sections/Landing'
+import About from '../sections/About'
 
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -10,8 +11,9 @@ const Index = () => {
   return (
     <>
       <Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
-      <OverlayNav isOpen={isOpen} />
+      <OverlayNav isOpen={isOpen} setIsOpen={setIsOpen} />
       <Landing />
+      <About />
       <style global jsx>{`
         body {
           margin: 0;

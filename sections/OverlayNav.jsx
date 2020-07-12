@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import scrollTo from '../utils/scrollTo'
 import { PRIMARY_COLOR } from '../constants'
 
 const Overlay = styled.section`
@@ -53,20 +54,29 @@ const OverlayNavLink = styled.a`
   }
 `
 
-const OverlayNav = ({ isOpen }) => (
-  <Overlay isOpen={isOpen}>
-    <OverlayNavList>
-      <OverlayNavItem>
-        <OverlayNavLink href="#">About</OverlayNavLink>
-      </OverlayNavItem>
-      <OverlayNavItem>
-        <OverlayNavLink href="#">Work</OverlayNavLink>
-      </OverlayNavItem>
-      <OverlayNavItem>
-        <OverlayNavLink href="#">Contact</OverlayNavLink>
-      </OverlayNavItem>
-    </OverlayNavList>
-  </Overlay>
-)
+const OverlayNav = ({ isOpen, setIsOpen }) => {
+  const handleScroll = (section) => (e) => {
+    setIsOpen(false)
+    scrollTo(section)(e)
+  }
+
+  return (
+    <Overlay isOpen={isOpen}>
+      <OverlayNavList>
+        <OverlayNavItem>
+          <OverlayNavLink href="#" onClick={handleScroll('about')}>
+            About
+          </OverlayNavLink>
+        </OverlayNavItem>
+        <OverlayNavItem>
+          <OverlayNavLink href="#">Work</OverlayNavLink>
+        </OverlayNavItem>
+        <OverlayNavItem>
+          <OverlayNavLink href="#">Contact</OverlayNavLink>
+        </OverlayNavItem>
+      </OverlayNavList>
+    </Overlay>
+  )
+}
 
 export default OverlayNav

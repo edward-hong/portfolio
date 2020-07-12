@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import scrollTo from '../utils/scrollTo'
 import { PRIMARY_COLOR, SECONDARY_COLOR } from '../constants'
 
 const Wrapper = styled.section`
@@ -100,7 +101,9 @@ const Landing = () => (
     <DesktopNav>
       <DesktopNavList>
         <DesktopNavItem>
-          <DesktopNavLink href="#">About</DesktopNavLink>
+          <DesktopNavLink onClick={scrollTo('about')} href="#">
+            About
+          </DesktopNavLink>
         </DesktopNavItem>
         <DesktopNavItem>
           <DesktopNavLink href="#">Work</DesktopNavLink>
