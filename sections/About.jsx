@@ -13,11 +13,11 @@ const Landing = styled.div`
   margin: 0px;
   background-color: ${PRIMARY_COLOR};
   top: 0;
-  position: ${({ inRange }) => (inRange ? 'fixed' : 'static')};
 
   @media screen and (min-width: 992px) {
     width: calc(50vw - ((100vw - 100%) / 2));
     float: left;
+    position: ${({ inRange }) => (inRange ? 'fixed' : 'static')};
   }
 `
 
@@ -81,7 +81,7 @@ const About = () => {
 
   return (
     <Wrapper id="about">
-      <Landing inRange={inRange || false}>
+      <Landing inRange={inRange}>
         <Heading>
           <img
             src="https://res.cloudinary.com/avatarhzh/image/upload/v1521343685/portfolio/about.svg"
