@@ -131,7 +131,7 @@ const About = () => {
             <span>Next</span>
           </li>
           <li>
-            <span>Express3</span>
+            <span>Express</span>
           </li>
           <li>
             <span>GraphQL, Apollo and Prisma</span>
