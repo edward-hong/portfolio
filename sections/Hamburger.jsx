@@ -34,6 +34,8 @@ const Hamburger = ({ isOpen, setIsOpen }) => {
       size={11}
       bgColor={PRIMARY_COLOR}
       onClick={toggleHamburger}
+      top="0px"
+      left="50%"
     >
       <HamburgerIcon
         top={isOpen ? '40%' : '33%'}

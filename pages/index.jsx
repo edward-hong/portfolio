@@ -4,6 +4,7 @@ import Hamburger from '../sections/Hamburger'
 import OverlayNav from '../sections/OverlayNav'
 import Landing from '../sections/Landing'
 import About from '../sections/About'
+import Contact from '../sections/Contact'
 
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,6 +15,7 @@ const Index = () => {
       <OverlayNav isOpen={isOpen} setIsOpen={setIsOpen} />
       <Landing />
       <About />
+      <Contact />
       <style global jsx>{`
         body {
           margin: 0;

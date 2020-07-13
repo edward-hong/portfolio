@@ -9,8 +9,8 @@ const Hexagon = styled.a`
 `
 const Slice = styled.span`
   position: absolute;
-  top: 0px;
-  left: 50%;
+  top: ${({ top }) => top};
+  left: ${({ left }) => left};
   transform-origin: left bottom;
   border-top: 1.125em solid transparent;
   border-right: none;
@@ -25,10 +25,26 @@ const Slice = styled.span`
   }
 `
 
-const Hex = ({ children, className, size, bgColor, onClick }) => (
-  <Hexagon size={size} className={className} onClick={onClick}>
+const Hex = ({
+  children,
+  className,
+  size,
+  bgColor,
+  onClick,
+  top,
+  left,
+  href = '#',
+  target = '_self',
+}) => (
+  <Hexagon
+    size={size}
+    className={className}
+    onClick={onClick}
+    href={href}
+    target={target}
+  >
     {[1, 2, 3, 4, 5, 6].map((i) => (
-      <Slice bgColor={bgColor} i={i} key={i} />
+      <Slice bgColor={bgColor} i={i} key={i} top={top} left={left} />
     ))}
     {children}
   </Hexagon>
