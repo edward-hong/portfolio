@@ -106,7 +106,9 @@ const Landing = () => (
           </DesktopNavLink>
         </DesktopNavItem>
         <DesktopNavItem>
-          <DesktopNavLink href="#">Work</DesktopNavLink>
+          <DesktopNavLink onClick={scrollTo('work')} href="#">
+            Work
+          </DesktopNavLink>
         </DesktopNavItem>
         <DesktopNavItem>
           <DesktopNavLink onClick={scrollTo('contact')} href="#">

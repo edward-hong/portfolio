@@ -69,7 +69,9 @@ const OverlayNav = ({ isOpen, setIsOpen }) => {
           </OverlayNavLink>
         </OverlayNavItem>
         <OverlayNavItem>
-          <OverlayNavLink href="#">Work</OverlayNavLink>
+          <OverlayNavLink href="#" onClick={handleScroll('work')}>
+            Work
+          </OverlayNavLink>
         </OverlayNavItem>
         <OverlayNavItem>
           <OverlayNavLink href="#" onClick={handleScroll('contact')}>
