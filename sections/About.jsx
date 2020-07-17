@@ -12,12 +12,13 @@ const Landing = styled.div`
   width: calc(100vw - (100vw - 100%));
   margin: 0px;
   background-color: ${PRIMARY_COLOR};
-  top: 0;
+  top: ${({ outOfRange, top }) => (outOfRange ? `${top}px` : '0px')};
+  /* top: 0; */
 
   @media screen and (min-width: 992px) {
     width: calc(50vw - ((100vw - 100%) / 2));
     float: left;
-    position: ${({ inRange }) => (inRange ? 'fixed' : 'static')};
+    position: ${({ inRange }) => (inRange ? 'fixed' : 'relative')};
   }
 `
 
@@ -70,18 +71,21 @@ const About = () => {
   const scrollY = useScrollPosition()
 
   let inRange
+  let outOfRange
+  let top
 
-  if (process.browser) {
-    inRange =
-      scrollY > window.innerHeight &&
-      scrollY <
-        window.innerHeight +
-          document.getElementById('about-section-info').clientHeight
+  if (process.browser && document.getElementById('about-section-info')) {
+    const aboutSectionHeight = document.getElementById('about-section-info')
+      .clientHeight
+
+    inRange = scrollY > window.innerHeight && scrollY < aboutSectionHeight
+    outOfRange = scrollY > aboutSectionHeight
+    top = aboutSectionHeight - window.innerHeight
   }
 
   return (
     <Wrapper id="about">
-      <Landing inRange={inRange}>
+      <Landing inRange={inRange} outOfRange={outOfRange} top={top}>
         <Heading>
           <img
             src="https://res.cloudinary.com/avatarhzh/image/upload/v1521343685/portfolio/about.svg"

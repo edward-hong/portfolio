@@ -4,7 +4,7 @@ import Hex from '../components/Hex'
 import { PRIMARY_COLOR } from '../constants'
 
 const Wrapper = styled.section`
-  clear: 'both';
+  clear: both;
 `
 
 const Close = styled(Hex)`
