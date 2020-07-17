@@ -4,6 +4,7 @@ import Hamburger from '../sections/Hamburger'
 import OverlayNav from '../sections/OverlayNav'
 import Landing from '../sections/Landing'
 import About from '../sections/About'
+import Work from '../sections/Work'
 import Contact from '../sections/Contact'
 
 const Index = () => {
@@ -15,6 +16,7 @@ const Index = () => {
       <OverlayNav isOpen={isOpen} setIsOpen={setIsOpen} />
       <Landing />
       <About />
+      <Work />
       <Contact />
       <style global jsx>{`
         body {
