@@ -9,7 +9,7 @@ const Nav = styled.nav`
   font-size: 1rem;
 
   @media screen and (max-width: 993px) {
-    display: none;
+    display: ${({ show }) => (show ? 'block' : 'none')};
   }
 `
 
@@ -59,9 +59,9 @@ const NavLink = styled.a`
   }
 `
 
-const SectionNav = ({ color }) => {
+const SectionNav = ({ color, show }) => {
   return (
-    <Nav>
+    <Nav show={show}>
       <NavItems>
         <NavItem color={color}>
           <NavLink onClick={scrollTo('about')} href="#" color={color}>

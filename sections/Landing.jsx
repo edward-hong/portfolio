@@ -45,7 +45,7 @@ const Landing = () => (
         alt="Edward Hong logo"
       />
     </MainHeading>
-    <SectionNav color={PRIMARY_COLOR} />
+    <SectionNav show color={PRIMARY_COLOR} />
   </Wrapper>
 )
 
