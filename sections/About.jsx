@@ -1,7 +1,8 @@
 import useScrollPosition from '@react-hook/window-scroll'
 import styled from 'styled-components'
 
-import { PRIMARY_COLOR } from '../constants'
+import SectionNav from '../components/SectionNav'
+import { PRIMARY_COLOR, SECONDARY_COLOR } from '../constants'
 
 const Wrapper = styled.section`
   z-index: 3;
@@ -92,6 +93,7 @@ const About = () => {
             alt="About"
           />
         </Heading>
+        <SectionNav color={SECONDARY_COLOR} />
       </Landing>
       <SectionInfo id="about-section-info">
         <p>

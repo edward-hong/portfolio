@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import Hex from '../components/Hex'
+import SectionNav from '../components/SectionNav'
 import { SECONDARY_COLOR } from '../constants'
 
 const Wrapper = styled.section`
@@ -74,6 +75,7 @@ const Contact = () => (
           alt="Contact"
         />
       </Heading>
+      <SectionNav color="white" />
     </Landing>
     <SectionInfo>
       <p>

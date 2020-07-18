@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import Hex from '../components/Hex'
+import SectionNav from '../components/SectionNav'
 import { PRIMARY_COLOR } from '../constants'
 
 const Wrapper = styled.section`
@@ -126,6 +127,7 @@ const Work = () => {
             </ProjectsNavItem>
           </ProjectsNavItems>
         </ProjectsNav>
+        <SectionNav color="black" />
       </Landing>
     </Wrapper>
   )
