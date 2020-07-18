@@ -7,7 +7,11 @@ import {
   MoreHexLabel,
 } from '../../components/ProjectComponents'
 
-const VoteMole = () => {
+const VoteMole = ({ selected, setSelected }) => {
+  const handleMore = (e) => {
+    e.preventDefault()
+    setSelected('votemole')
+  }
   return (
     <ProjectListItem>
       <ProjectItemHeader>
@@ -15,7 +19,13 @@ const VoteMole = () => {
         <ProjectItemHeaderContent color="black">
           <h3>VoteMole</h3>
           <h4>Polling App</h4>
-          <MoreHex top="0px" left="50%" size={16} bgColor="black">
+          <MoreHex
+            onClick={handleMore}
+            top="0px"
+            left="50%"
+            size={16}
+            bgColor="black"
+          >
             <MoreHexLabel>More</MoreHexLabel>
           </MoreHex>
         </ProjectItemHeaderContent>

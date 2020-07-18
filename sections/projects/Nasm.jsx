@@ -17,7 +17,11 @@ const NasmItemHeaderImage = styled(ProjectItemHeaderImage)`
     url(https://res.cloudinary.com/avatarhzh/image/upload/v1532507135/portfolio/nasm-bg-compressor.jpg);
 `
 
-const Nasm = () => {
+const Nasm = ({ selected, setSelected }) => {
+  const handleMore = (e) => {
+    e.preventDefault()
+    setSelected('nasm')
+  }
   return (
     <ProjectListItem>
       <ProjectItemHeader>
@@ -25,7 +29,13 @@ const Nasm = () => {
         <ProjectItemHeaderContent color="white">
           <h3>Nation of Social Media</h3>
           <h4>Social Media Data Visualisation</h4>
-          <MoreHex top="0px" left="50%" size={16} bgColor="black">
+          <MoreHex
+            onClick={handleMore}
+            top="0px"
+            left="50%"
+            size={16}
+            bgColor="black"
+          >
             <MoreHexLabel>More</MoreHexLabel>
           </MoreHex>
         </ProjectItemHeaderContent>

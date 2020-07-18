@@ -7,7 +7,11 @@ import {
   MoreHexLabel,
 } from '../../components/ProjectComponents'
 
-const Roamm = () => {
+const Roamm = ({ selected, setSelected }) => {
+  const handleMore = (e) => {
+    e.preventDefault()
+    setSelected('roamm')
+  }
   return (
     <ProjectListItem>
       <ProjectItemHeader>
@@ -15,7 +19,13 @@ const Roamm = () => {
         <ProjectItemHeaderContent color="white">
           <h3>Roamm</h3>
           <h4>Night Life Coordination</h4>
-          <MoreHex top="0px" left="50%" size={16} bgColor="black">
+          <MoreHex
+            onClick={handleMore}
+            top="0px"
+            left="50%"
+            size={16}
+            bgColor="black"
+          >
             <MoreHexLabel>More</MoreHexLabel>
           </MoreHex>
         </ProjectItemHeaderContent>

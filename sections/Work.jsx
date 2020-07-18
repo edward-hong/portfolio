@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import useScrollPosition from '@react-hook/window-scroll'
 import styled from 'styled-components'
 
@@ -6,6 +7,7 @@ import SectionNav from '../components/SectionNav'
 import VoteMole from './projects/VoteMole'
 import Roamm from './projects/Roamm'
 import Nasm from './projects/Nasm'
+import { PRIMARY_COLOR } from '../constants'
 
 const Wrapper = styled.section`
   clear: both;
@@ -16,7 +18,7 @@ const Close = styled(Hex)`
   top: 20px;
   left: 20px;
   z-index: 2;
-  cursor: default; // pointer
+  cursor: ${({ selected }) => (selected ? 'pointer' : 'default')};
 
   &::before,
   &::after {
@@ -25,7 +27,7 @@ const Close = styled(Hex)`
     height: 2px;
     width: 50%;
     background-color: white;
-    opacity: 0; // 1
+    opacity: ${({ selected }) => (selected ? 1 : 0)};
     position: absolute;
     transition: all 0.25s ease-in-out 0s;
   }
@@ -41,6 +43,10 @@ const Close = styled(Hex)`
     right: 27%;
     top: 48%;
     transform: rotate(-45deg);
+  }
+
+  @media screen and (min-width: 992px) {
+    left: calc((50vw - ((100vw - 100%) / 2)) - 1.875em);
   }
 `
 
@@ -111,6 +117,7 @@ const Projects = styled.ul`
 
 const Work = () => {
   const scrollY = useScrollPosition()
+  const [selected, setSelected] = useState(false)
 
   let inRange
   let outOfRange
@@ -127,14 +134,23 @@ const Work = () => {
     top = projectSectionHeight - window.innerHeight
   }
 
+  const handleClose = (e) => {
+    e.preventDefault()
+    setSelected(false)
+  }
+
+  console.log(selected)
+
   return (
     <Wrapper id="work">
       <Close
         href="#"
         size={11}
-        bgColor={'transparent'} // PRIMARY_COLOR
+        bgColor={selected ? PRIMARY_COLOR : 'transparent'} // PRIMARY_COLOR
         top="0px"
         left="50%"
+        onClick={handleClose}
+        selected={selected}
       ></Close>
       <Landing inRange={inRange} outOfRange={outOfRange} top={top}>
         <Heading>
@@ -159,9 +175,9 @@ const Work = () => {
         <SectionNav color="black" />
       </Landing>
       <Projects id="projects">
-        <VoteMole />
-        <Roamm />
-        <Nasm />
+        <VoteMole selected={selected} setSelected={setSelected} />
+        <Roamm selected={selected} setSelected={setSelected} />
+        <Nasm selected={selected} setSelected={setSelected} />
       </Projects>
     </Wrapper>
   )
