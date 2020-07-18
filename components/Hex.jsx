@@ -9,8 +9,8 @@ const Hexagon = styled.a`
 `
 const Slice = styled.span`
   position: absolute;
-  top: ${({ top }) => top};
-  left: ${({ left }) => left};
+  top: ${({ top }) => top || '0px'};
+  left: ${({ left }) => left || '0px'};
   transform-origin: left bottom;
   border-top: 1.125em solid transparent;
   border-right: none;

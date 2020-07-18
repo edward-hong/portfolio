@@ -1,8 +1,11 @@
+import useScrollPosition from '@react-hook/window-scroll'
 import styled from 'styled-components'
 
 import Hex from '../components/Hex'
 import SectionNav from '../components/SectionNav'
-import { PRIMARY_COLOR } from '../constants'
+import VoteMole from './projects/VoteMole'
+import Roamm from './projects/Roamm'
+import Nasm from './projects/Nasm'
 
 const Wrapper = styled.section`
   clear: both;
@@ -46,13 +49,13 @@ const Landing = styled.div`
   width: calc(100vw - (100vw - 100%));
   margin: 0px;
   background-color: white;
-  top: 0;
+  top: ${({ outOfRange, top }) => (outOfRange ? `${top}px` : '0px')};
 
-  /* @media screen and (min-width: 992px) {
+  @media screen and (min-width: 992px) {
     width: calc(50vw - ((100vw - 100%) / 2));
     float: left;
-    position: ${({ inRange }) => (inRange ? 'fixed' : 'static')};
-  } */
+    position: ${({ inRange }) => (inRange ? 'fixed' : 'relative')};
+  }
 `
 
 const Heading = styled.h2`
@@ -96,8 +99,34 @@ const ProjectsNavLink = styled.a`
   color: black;
   text-decoration: none;
 `
+const Projects = styled.ul`
+  margin: 0;
+  padding: 0;
+
+  @media screen and (min-width: 992px) {
+    width: calc(50vw - ((100vw - 100%) / 2));
+    float: right;
+  }
+`
 
 const Work = () => {
+  const scrollY = useScrollPosition()
+
+  let inRange
+  let outOfRange
+  let top
+
+  if (process.browser && document.getElementById('projects')) {
+    const projectSectionHeight = document.getElementById('projects')
+      .clientHeight
+
+    inRange =
+      scrollY > 2 * window.innerHeight &&
+      scrollY < projectSectionHeight + window.innerHeight
+    outOfRange = scrollY > projectSectionHeight + window.innerHeight
+    top = projectSectionHeight - window.innerHeight
+  }
+
   return (
     <Wrapper id="work">
       <Close
@@ -107,7 +136,7 @@ const Work = () => {
         top="0px"
         left="50%"
       ></Close>
-      <Landing>
+      <Landing inRange={inRange} outOfRange={outOfRange} top={top}>
         <Heading>
           <img
             src="https://res.cloudinary.com/avatarhzh/image/upload/v1521343688/portfolio/work.svg"
@@ -129,6 +158,11 @@ const Work = () => {
         </ProjectsNav>
         <SectionNav color="black" />
       </Landing>
+      <Projects id="projects">
+        <VoteMole />
+        <Roamm />
+        <Nasm />
+      </Projects>
     </Wrapper>
   )
 }

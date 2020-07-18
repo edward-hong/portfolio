@@ -14,7 +14,6 @@ const Landing = styled.div`
   margin: 0px;
   background-color: ${PRIMARY_COLOR};
   top: ${({ outOfRange, top }) => (outOfRange ? `${top}px` : '0px')};
-  /* top: 0; */
 
   @media screen and (min-width: 992px) {
     width: calc(50vw - ((100vw - 100%) / 2));
