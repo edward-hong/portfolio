@@ -137,8 +137,12 @@ const Work = () => {
   const handleClose = (e) => {
     e.preventDefault()
     document.getElementById(selected).scrollIntoView({ behavior: 'smooth' })
+
     setTimeout(() => {
       setSelected(false)
+      if (process.browser && selected === 'roamm') {
+        window.scrollBy(0, window.innerHeight)
+      }
     }, 2000)
   }
 

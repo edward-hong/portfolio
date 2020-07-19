@@ -4,8 +4,8 @@ import {
   ProjectItemHeaderImage,
   ProjectItemHeaderContent,
   MoreHex,
-  NextHex,
   MoreHexLabel,
+  NextHex,
   NextHexLabel,
   ProjectItemBody,
   ProjectItemParagraph,
@@ -21,7 +21,6 @@ import {
   TechIcon,
   NextLinkContainer,
 } from '../../components/ProjectComponents'
-import Hex from '../../components/Hex'
 import { SECONDARY_COLOR } from '../../constants'
 
 const VoteMole = ({ selected, setSelected }) => {
@@ -29,6 +28,9 @@ const VoteMole = ({ selected, setSelected }) => {
     e.preventDefault()
     document.getElementById('votemole').scrollIntoView({ behavior: 'smooth' })
     setTimeout(() => {
+      if (process.browser) {
+        window.scrollBy(0, 0)
+      }
       setSelected('votemole')
     }, 2000)
   }
@@ -197,6 +199,7 @@ const VoteMole = ({ selected, setSelected }) => {
           </TechIcon>{' '}
           <TechIcon iconWidth="56px" iconHeight="25px">
             <img
+              style={{ marginBottom: 4 }}
               src="https://res.cloudinary.com/avatarhzh/image/upload/v1561360519/portfolio/tech-stack/styled-components.png"
               alt="styled components logo"
             />
