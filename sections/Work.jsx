@@ -143,6 +143,9 @@ const Work = () => {
       if (process.browser && selected === 'roamm') {
         window.scrollBy(0, window.innerHeight)
       }
+      if (process.browser && selected === 'nasm') {
+        window.scrollBy(0, 2 * window.innerHeight)
+      }
     }, 2000)
   }
 

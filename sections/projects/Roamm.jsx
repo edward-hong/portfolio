@@ -223,12 +223,12 @@ const Roamm = ({ selected, setSelected }) => {
             alt="Roamm Preview 2"
           />
         </picture>
+        <NextLinkContainer>
+          <NextHex top="0px" left="50%" size={16} bgColor={'black'}>
+            <NextHexLabel>Next</NextHexLabel>
+          </NextHex>
+        </NextLinkContainer>
       </ProjectItemBody>
-      <NextLinkContainer>
-        <NextHex top="0px" left="50%" size={16} bgColor={'black'}>
-          <NextHexLabel>Next</NextHexLabel>
-        </NextHex>
-      </NextLinkContainer>
     </ProjectListItem>
   )
 }

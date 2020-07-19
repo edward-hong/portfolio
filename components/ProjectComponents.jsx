@@ -63,6 +63,7 @@ export const ProjectItemHeaderContent = styled.div`
 `
 
 export const MoreHex = styled(Hex)`
+  display: ${({ selected }) => (selected ? 'none' : 'inline-block')};
   position: relative;
   text-decoration: none;
   cursor: ${({ selected }) => (selected ? 'default' : 'pointer')};
