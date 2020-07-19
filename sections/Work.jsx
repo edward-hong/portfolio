@@ -149,6 +149,19 @@ const Work = () => {
     }, 2000)
   }
 
+  const handleMore = (section) => () => {
+    document.getElementById(section).scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      if (process.browser) {
+        window.scrollBy(
+          0,
+          ['votemole', 'roamm', 'nasm'].indexOf(section) * -window.innerHeight,
+        )
+      }
+      setSelected(section)
+    }, 2000)
+  }
+
   const handleUnselected = (e) => e.preventDefault()
 
   return (
@@ -185,9 +198,21 @@ const Work = () => {
         <SectionNav color="black" />
       </Landing>
       <Projects id="projects">
-        <VoteMole selected={selected} setSelected={setSelected} />
-        <Roamm selected={selected} setSelected={setSelected} />
-        <Nasm selected={selected} setSelected={setSelected} />
+        <VoteMole
+          selected={selected}
+          setSelected={setSelected}
+          handleMore={handleMore('votemole')}
+        />
+        <Roamm
+          selected={selected}
+          setSelected={setSelected}
+          handleMore={handleMore('roamm')}
+        />
+        <Nasm
+          selected={selected}
+          setSelected={setSelected}
+          handleMore={handleMore('nasm')}
+        />
       </Projects>
     </Wrapper>
   )

@@ -24,17 +24,7 @@ import {
 import debounceEvent from '../../utils/debounceEvent'
 import { SECONDARY_COLOR } from '../../constants'
 
-const Roamm = ({ selected, setSelected }) => {
-  const handleMore = (e) => {
-    e.preventDefault()
-    document.getElementById('roamm').scrollIntoView({ behavior: 'smooth' })
-    setTimeout(() => {
-      if (process.browser) {
-        window.scrollBy(0, -window.innerHeight)
-      }
-      setSelected('roamm')
-    }, 2000)
-  }
+const Roamm = ({ selected, setSelected, handleMore }) => {
   return (
     <ProjectListItem
       isVisible={selected === false || selected === 'roamm'}

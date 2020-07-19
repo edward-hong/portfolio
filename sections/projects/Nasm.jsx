@@ -34,17 +34,7 @@ const NasmItemHeaderImage = styled(ProjectItemHeaderImage)`
     url(https://res.cloudinary.com/avatarhzh/image/upload/v1532507135/portfolio/nasm-bg-compressor.jpg);
 `
 
-const Nasm = ({ selected, setSelected }) => {
-  const handleMore = (e) => {
-    e.preventDefault()
-    document.getElementById('nasm').scrollIntoView({ behavior: 'smooth' })
-    setTimeout(() => {
-      if (process.browser) {
-        window.scrollBy(0, -2 * window.innerHeight)
-      }
-      setSelected('nasm')
-    }, 2000)
-  }
+const Nasm = ({ selected, setSelected, handleMore }) => {
   return (
     <ProjectListItem
       isVisible={selected === false || selected === 'nasm'}

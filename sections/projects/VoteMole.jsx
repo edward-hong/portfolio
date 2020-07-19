@@ -24,17 +24,7 @@ import {
 import debounceEvent from '../../utils/debounceEvent'
 import { SECONDARY_COLOR } from '../../constants'
 
-const VoteMole = ({ selected, setSelected }) => {
-  const handleMore = (e) => {
-    e.preventDefault()
-    document.getElementById('votemole').scrollIntoView({ behavior: 'smooth' })
-    setTimeout(() => {
-      if (process.browser) {
-        window.scrollBy(0, 0)
-      }
-      setSelected('votemole')
-    }, 2000)
-  }
+const VoteMole = ({ selected, setSelected, handleMore }) => {
   return (
     <ProjectListItem
       isVisible={selected === false || selected === 'votemole'}
