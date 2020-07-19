@@ -13,7 +13,7 @@ const Roamm = ({ selected, setSelected }) => {
     setSelected('roamm')
   }
   return (
-    <ProjectListItem>
+    <ProjectListItem isVisible={selected === false || selected === 'roamm'}>
       <ProjectItemHeader>
         <ProjectItemHeaderImage bgImage="https://res.cloudinary.com/avatarhzh/image/upload/v1532505080/portfolio/roam-bg-compressor.jpg" />
         <ProjectItemHeaderContent color="white">

@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
 import Hex from './Hex'
+import { PRIMARY_COLOR, TECH_BG_COLOR } from '../constants'
 
 export const ProjectListItem = styled.li`
-  height: 100vh;
+  height: ${({ selected }) => (selected ? 'auto' : '100vh')};
   width: calc(100vw - (100vw - 100%));
-  display: block;
+  display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
   position: relative;
   transition: height 1s ease-in-out 0.5s;
-  overflow: visible; // hidden
+  overflow: ${({ selected }) => (selected ? 'visible' : 'hidden')};
 
   &:hover div div:first-child {
-    transform: scale(1.3);
+    transform: ${({ selected }) => (selected ? 'none' : 'scale(1.3)')};
   }
 
   @media screen and (min-width: 992px) {
@@ -21,7 +22,7 @@ export const ProjectListItem = styled.li`
 `
 
 export const ProjectItemHeader = styled.div`
-  height: 100vh;
+  height: ${({ selected }) => (selected ? '55vh' : '100vh')};
   width: calc(100vw - (100vw - 100%));
   transition: height 1s ease-in-out 0.5s;
 
@@ -36,13 +37,13 @@ export const ProjectItemHeaderImage = styled.div`
   background-size: cover;
   background-image: url(${({ bgImage }) => bgImage});
   background-position: center center;
-  transition: all 15s ease 0s;
+  transition: ${({ selected }) => (selected ? '0s' : 'all 15s ease 0s')};
 `
 
 export const ProjectItemHeaderContent = styled.div`
   display: inline-block;
   width: 100%;
-  top: 29vh;
+  top: ${({ selected }) => (selected ? '15vh' : '29vh')};
   text-align: center;
   position: absolute;
   color: ${({ color }) => color};
@@ -64,7 +65,23 @@ export const ProjectItemHeaderContent = styled.div`
 export const MoreHex = styled(Hex)`
   position: relative;
   text-decoration: none;
+  cursor: ${({ selected }) => (selected ? 'default' : 'pointer')};
+  ${({ selected }) =>
+    selected
+      ? null
+      : [1, 2, 3, 4, 5, 6].map(
+          (i) => `
+    &:hover span:nth-child(${i}) {
+    border-left-color: rgb(41, 41, 41);
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${i * 0.08}s;
+  }
+  `,
+        )};
+`
 
+export const NextHex = styled(Hex)`
+  position: relative;
+  text-decoration: none;
   ${[1, 2, 3, 4, 5, 6].map(
     (i) => `
     &:hover span:nth-child(${i}) {
@@ -72,15 +89,134 @@ export const MoreHex = styled(Hex)`
     transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${i * 0.08}s;
   }
   `,
-  )}
+  )};
 `
 
 export const MoreHexLabel = styled.span`
-  display: inline;
+  display: ${({ selected }) => (selected ? 'none' : 'inline')};
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.8rem;
   position: relative;
   top: 23px;
   color: white;
+`
+
+export const NextHexLabel = styled.span`
+  display: inline;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  position: relative;
+  top: 23px;
+  left: 11px;
+  color: white;
+`
+
+export const ProjectItemBody = styled.div`
+  padding: 30px 45px;
+`
+
+export const ProjectItemParagraph = styled.p`
+  line-height: 1.5;
+  font-size: 1.2rem;
+`
+
+export const HexContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+`
+
+export const ProjectHex = styled(Hex)`
+  position: relative;
+  display: inline-block;
+  margin-right: 5px;
+`
+
+export const LinkWrapper = styled.div`
+  width: 2.5em;
+  height: 2.5em;
+  position: relative;
+  left: ${({ left }) => left};
+  top: ${({ top }) => top};
+  z-index: 2;
+  fill: white;
+`
+
+export const ProjectBodyHeading = styled.h3`
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+`
+
+export const ProjectBodySubHeading = styled.h4`
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+`
+
+export const ProjectBodyList = styled.ul`
+  margin-bottom: 40px;
+  list-style: inside disc;
+
+  @media screen and (min-width: 991px) {
+    margin-bottom: 70px;
+  }
+`
+
+export const ProjectBodyListItem = styled.li`
+  @media screen and (min-width: 991px) {
+    margin: 0px 60px;
+  }
+
+  color: ${PRIMARY_COLOR};
+  list-style-position: outside;
+  line-height: 1.5;
+
+  span {
+    color: black;
+  }
+`
+
+export const ProjectBodyImage = styled.img`
+  display: block;
+  width: calc(100% + 90px);
+  position: relative;
+  left: -45px;
+  margin: 40px 0px;
+`
+
+export const TechIconsContainer = styled.div`
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 3;
+  padding: 0px 40px;
+`
+
+export const TechIcon = styled.span`
+  background-color: ${TECH_BG_COLOR};
+  color: white;
+  white-space: nowrap;
+  border-radius: 10px;
+  padding: 12px;
+
+  img {
+    width: ${({ iconWidth }) => iconWidth || '30px'};
+    height: ${({ iconHeight }) => iconHeight || 'auto'};
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 5px 0px 0px;
+  }
+`
+export const NextLinkContainer = styled.div`
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 0 60px;
+  padding: 0 100px;
 `

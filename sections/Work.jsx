@@ -136,10 +136,11 @@ const Work = () => {
 
   const handleClose = (e) => {
     e.preventDefault()
-    setSelected(false)
+    document.getElementById(selected).scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      setSelected(false)
+    }, 2000)
   }
-
-  console.log(selected)
 
   return (
     <Wrapper id="work">

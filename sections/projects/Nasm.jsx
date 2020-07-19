@@ -23,7 +23,7 @@ const Nasm = ({ selected, setSelected }) => {
     setSelected('nasm')
   }
   return (
-    <ProjectListItem>
+    <ProjectListItem isVisible={selected === false || selected === 'nasm'}>
       <ProjectItemHeader>
         <NasmItemHeaderImage bgImage="https://res.cloudinary.com/avatarhzh/image/upload/v1532505080/portfolio/roam-bg-compressor.jpg" />
         <ProjectItemHeaderContent color="white">
