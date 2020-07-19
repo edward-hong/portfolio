@@ -21,6 +21,7 @@ import {
   TechIcon,
   NextLinkContainer,
 } from '../../components/ProjectComponents'
+import debounceEvent from '../../utils/debounceEvent'
 import { SECONDARY_COLOR } from '../../constants'
 
 const VoteMole = ({ selected, setSelected }) => {
@@ -52,7 +53,7 @@ const VoteMole = ({ selected, setSelected }) => {
           <h3>VoteMole</h3>
           <h4>Polling App</h4>
           <MoreHex
-            onClick={handleMore}
+            onClick={debounceEvent(handleMore, 1000)}
             top="0px"
             left="50%"
             size={16}

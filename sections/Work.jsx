@@ -7,6 +7,7 @@ import SectionNav from '../components/SectionNav'
 import VoteMole from './projects/VoteMole'
 import Roamm from './projects/Roamm'
 import Nasm from './projects/Nasm'
+import debounceEvent from '../utils/debounceEvent'
 import { PRIMARY_COLOR } from '../constants'
 
 const Wrapper = styled.section`
@@ -134,8 +135,7 @@ const Work = () => {
     top = projectSectionHeight - window.innerHeight
   }
 
-  const handleClose = (e) => {
-    e.preventDefault()
+  const handleClose = () => {
     document.getElementById(selected).scrollIntoView({ behavior: 'smooth' })
 
     setTimeout(() => {
@@ -146,15 +146,17 @@ const Work = () => {
     }, 2000)
   }
 
+  const handleUnselected = (e) => e.preventDefault()
+
   return (
     <Wrapper id="work">
       <Close
         href="#"
         size={11}
-        bgColor={selected ? PRIMARY_COLOR : 'transparent'} // PRIMARY_COLOR
+        bgColor={selected ? PRIMARY_COLOR : 'transparent'}
         top="0px"
         left="50%"
-        onClick={handleClose}
+        onClick={selected ? debounceEvent(handleClose, 1000) : handleUnselected}
         selected={selected}
       ></Close>
       <Landing inRange={inRange} outOfRange={outOfRange} top={top}>

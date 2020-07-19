@@ -21,6 +21,7 @@ import {
   TechIcon,
   NextLinkContainer,
 } from '../../components/ProjectComponents'
+import debounceEvent from '../../utils/debounceEvent'
 import { SECONDARY_COLOR } from '../../constants'
 
 const Roamm = ({ selected, setSelected }) => {
@@ -49,7 +50,7 @@ const Roamm = ({ selected, setSelected }) => {
           <h3>Roamm</h3>
           <h4>Night Life Coordination</h4>
           <MoreHex
-            onClick={handleMore}
+            onClick={debounceEvent(handleMore, 1000)}
             top="0px"
             left="50%"
             size={16}
