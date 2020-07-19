@@ -8,7 +8,7 @@ export const ProjectListItem = styled.li`
   display: block;
   position: relative;
   transition: height 1s ease-in-out 0.5s;
-  overflow: hidden; // visible
+  overflow: visible; // hidden
 
   &:hover div div:first-child {
     transform: scale(1.3);
@@ -65,35 +65,14 @@ export const MoreHex = styled(Hex)`
   position: relative;
   text-decoration: none;
 
-  &:hover span:nth-child(1) {
+  ${[1, 2, 3, 4, 5, 6].map(
+    (i) => `
+    &:hover span:nth-child(${i}) {
     border-left-color: rgb(41, 41, 41);
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.08s;
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${i * 0.08}s;
   }
-
-  &:hover span:nth-child(2) {
-    border-left-color: rgb(41, 41, 41);
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.16s;
-  }
-
-  &:hover span:nth-child(3) {
-    border-left-color: rgb(41, 41, 41);
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.24s;
-  }
-
-  &:hover span:nth-child(4) {
-    border-left-color: rgb(41, 41, 41);
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.32s;
-  }
-
-  &:hover span:nth-child(5) {
-    border-left-color: rgb(41, 41, 41);
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
-  }
-
-  &:hover span:nth-child(6) {
-    border-left-color: rgb(41, 41, 41);
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.48s;
-  }
+  `,
+  )}
 `
 
 export const MoreHexLabel = styled.span`
