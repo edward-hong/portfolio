@@ -126,7 +126,7 @@ const VoteMole = ({ selected, setSelected }) => {
         </ProjectBodyList>
         <picture>
           <source
-            srcset="https://res.cloudinary.com/avatarhzh/image/upload/v1532499368/portfolio/votemole-mobile-compressor.png"
+            srcSet="https://res.cloudinary.com/avatarhzh/image/upload/v1532499368/portfolio/votemole-mobile-compressor.png"
             media="(min-device-width: 320px) and (max-device-width: 480px)"
           />
           <ProjectBodyImage
@@ -266,7 +266,7 @@ const VoteMole = ({ selected, setSelected }) => {
         </TechIconsContainer>
         <picture>
           <source
-            srcset="https://res.cloudinary.com/avatarhzh/image/upload/v1532501510/portfolio/votemole-preview-2-mobile-compressor.png"
+            srcSet="https://res.cloudinary.com/avatarhzh/image/upload/v1532501510/portfolio/votemole-preview-2-mobile-compressor.png"
             media="(min-device-width: 320px) and (max-device-width: 480px)"
           />
           <ProjectBodyImage
