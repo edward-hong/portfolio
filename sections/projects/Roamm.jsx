@@ -24,7 +24,15 @@ import {
 import debounceEvent from '../../utils/debounceEvent'
 import { SECONDARY_COLOR } from '../../constants'
 
-const Roamm = ({ selected, setSelected, handleMore }) => {
+const Roamm = ({ selected, handleMore, handleClose }) => {
+  const handleNext = (e) => {
+    e.preventDefault()
+    handleClose()
+    setTimeout(() => {
+      handleMore('nasm')()
+    }, 3500)
+  }
+
   return (
     <ProjectListItem
       isVisible={selected === false || selected === 'roamm'}
@@ -40,7 +48,7 @@ const Roamm = ({ selected, setSelected, handleMore }) => {
           <h3>Roamm</h3>
           <h4>Night Life Coordination</h4>
           <MoreHex
-            onClick={debounceEvent(handleMore, 1000)}
+            onClick={debounceEvent(handleMore('roamm'), 1000)}
             top="0px"
             left="50%"
             size={16}
@@ -214,7 +222,13 @@ const Roamm = ({ selected, setSelected, handleMore }) => {
           />
         </picture>
         <NextLinkContainer>
-          <NextHex top="0px" left="50%" size={16} bgColor={'black'}>
+          <NextHex
+            onClick={handleNext}
+            top="0px"
+            left="50%"
+            size={16}
+            bgColor={'black'}
+          >
             <NextHexLabel>Next</NextHexLabel>
           </NextHex>
         </NextLinkContainer>

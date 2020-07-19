@@ -34,7 +34,15 @@ const NasmItemHeaderImage = styled(ProjectItemHeaderImage)`
     url(https://res.cloudinary.com/avatarhzh/image/upload/v1532507135/portfolio/nasm-bg-compressor.jpg);
 `
 
-const Nasm = ({ selected, setSelected, handleMore }) => {
+const Nasm = ({ selected, handleMore, handleClose }) => {
+  const handleNext = (e) => {
+    e.preventDefault()
+    handleClose()
+    setTimeout(() => {
+      handleMore('votemole')()
+    }, 3500)
+  }
+
   return (
     <ProjectListItem
       isVisible={selected === false || selected === 'nasm'}
@@ -50,7 +58,7 @@ const Nasm = ({ selected, setSelected, handleMore }) => {
           <h3>Nation of Social Media</h3>
           <h4>Social Media Data Visualisation</h4>
           <MoreHex
-            onClick={debounceEvent(handleMore, 1000)}
+            onClick={debounceEvent(handleMore('nasm'), 1000)}
             top="0px"
             left="50%"
             size={16}
@@ -207,7 +215,13 @@ const Nasm = ({ selected, setSelected, handleMore }) => {
           />
         </picture>
         <NextLinkContainer>
-          <NextHex top="0px" left="50%" size={16} bgColor={'black'}>
+          <NextHex
+            onClick={handleNext}
+            top="0px"
+            left="50%"
+            size={16}
+            bgColor={'black'}
+          >
             <NextHexLabel>Next</NextHexLabel>
           </NextHex>
         </NextLinkContainer>

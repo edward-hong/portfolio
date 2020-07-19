@@ -200,18 +200,18 @@ const Work = () => {
       <Projects id="projects">
         <VoteMole
           selected={selected}
-          setSelected={setSelected}
-          handleMore={handleMore('votemole')}
+          handleMore={handleMore}
+          handleClose={handleClose}
         />
         <Roamm
           selected={selected}
-          setSelected={setSelected}
-          handleMore={handleMore('roamm')}
+          handleMore={handleMore}
+          handleClose={handleClose}
         />
         <Nasm
           selected={selected}
-          setSelected={setSelected}
-          handleMore={handleMore('nasm')}
+          handleMore={handleMore}
+          handleClose={handleClose}
         />
       </Projects>
     </Wrapper>
