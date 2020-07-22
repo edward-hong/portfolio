@@ -163,6 +163,13 @@ const Nasm = ({ selected, handleMore, handleClose }) => {
             />
             jVectorMap
           </TechIcon>{' '}
+          <TechIcon iconWidth="40px">
+            <img
+              src="https://res.cloudinary.com/avatarhzh/image/upload/v1532327794/portfolio/tech-stack/sass.svg"
+              alt="Sass logo"
+            />
+            Sass
+          </TechIcon>{' '}
           <TechIcon>
             <img
               src="https://res.cloudinary.com/avatarhzh/image/upload/v1523075751/portfolio/tech-stack/youtube.svg"
@@ -202,6 +209,13 @@ const Nasm = ({ selected, handleMore, handleClose }) => {
               alt="Express logo"
             />
             Express
+          </TechIcon>{' '}
+          <TechIcon iconWidth="45px">
+            <img
+              src="https://res.cloudinary.com/avatarhzh/image/upload/v1561370745/portfolio/tech-stack/handlebars.png"
+              alt="Express Handlebars logo"
+            />
+            Handlebars
           </TechIcon>
         </TechIconsContainer>
         <picture>
