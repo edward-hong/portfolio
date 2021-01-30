@@ -8,6 +8,7 @@ import VoteMole from './projects/VoteMole'
 import Roamm from './projects/Roamm'
 import Nasm from './projects/Nasm'
 import debounceEvent from '../utils/debounceEvent'
+import scrollTo from '../utils/scrollTo'
 import { PRIMARY_COLOR } from '../constants'
 
 const Wrapper = styled.section`
@@ -149,20 +150,20 @@ const Work = () => {
     }, 2000)
   }
 
-  const handleMore = (section) => () => {
+  const handleMore = section => () => {
     document.getElementById(section).scrollIntoView({ behavior: 'smooth' })
     setTimeout(() => {
       if (process.browser) {
         window.scrollBy(
           0,
-          ['votemole', 'roamm', 'nasm'].indexOf(section) * -window.innerHeight,
+          ['votemole', 'roamm', 'nasm'].indexOf(section) * -window.innerHeight
         )
       }
       setSelected(section)
     }, 2000)
   }
 
-  const handleUnselected = (e) => e.preventDefault()
+  const handleUnselected = e => e.preventDefault()
 
   return (
     <Wrapper id="work">
@@ -185,13 +186,19 @@ const Work = () => {
         <ProjectsNav>
           <ProjectsNavItems>
             <ProjectsNavItem>
-              <ProjectsNavLink href="#">VoteMole</ProjectsNavLink>
+              <ProjectsNavLink onClick={scrollTo('votemole')} href="#">
+                VoteMole
+              </ProjectsNavLink>
             </ProjectsNavItem>
             <ProjectsNavItem>
-              <ProjectsNavLink href="#">Roamm</ProjectsNavLink>
+              <ProjectsNavLink onClick={scrollTo('roamm')} href="#">
+                Roamm
+              </ProjectsNavLink>
             </ProjectsNavItem>
             <ProjectsNavItem>
-              <ProjectsNavLink href="#">Nation of Social Media</ProjectsNavLink>
+              <ProjectsNavLink onClick={scrollTo('nasm')} href="#">
+                Nation of Social Media
+              </ProjectsNavLink>
             </ProjectsNavItem>
           </ProjectsNavItems>
         </ProjectsNav>
